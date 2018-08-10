@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('specializations', 'CatalogController@specializations')->name('specializations');
+Route::get('degree', 'CatalogController@degree')->name('degree');
+
+Route::prefix('application')->name('application.')->group(function () {
+    Route::get('/', 'ApplicationController@index')->name('index');
+
+    Route::post('store', 'ApplicationController@store')->name('store');
 });

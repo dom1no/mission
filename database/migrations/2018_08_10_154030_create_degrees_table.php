@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoctorDegreesTable extends Migration
+class CreateDegreesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateDoctorDegreesTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_degrees', function (Blueprint $table) {
+        Schema::create('degrees', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateDoctorDegreesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_degrees');
+        Schema::dropIfExists('degrees');
     }
 }

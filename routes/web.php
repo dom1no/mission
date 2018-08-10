@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
+    Route::prefix('application')->name('application.')->group(function () {
+        Route::get('/', 'ApplicationController@index')->name('index');
+        Route::get('{application}', 'ApplicationController@show')->name('show');
+
+        Route::get('paid/{application}', 'ApplicationController@paid')->name('paid');
+    });
+
 });
