@@ -10,36 +10,50 @@ class SpecializationController extends Controller
 {
     public function index()
     {
-        //
+        $specializations = Specialization::all();
+
+        return view('admin.specialization.index', compact('specializations'));
     }
 
     public function create()
     {
-        //
+        return view('admin.specialization.create');
     }
 
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:255|unique:specializations,name',
+        ]);
+
+        $specialization = new Specialization();
+        $specialization->name = $request->name;
+        $specialization->save();
+
+        return redirect()->route('admin.specialization.index');
     }
 
-    public function show(Specialization $degree)
+    public function edit(Specialization $specialization)
     {
-        //
+        return view('admin.specialization.edit', compact('specialization'));
     }
 
-    public function edit(Specialization $degree)
+    public function update(Request $request, Specialization $specialization)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:255|unique:specializations,name,' . $specialization->id,
+        ]);
+
+        $specialization->name = $request->name;
+        $specialization->save();
+
+        return redirect()->route('admin.specialization.index');
     }
 
-    public function update(Request $request, Specialization $degree)
+    public function destroy(Specialization $specialization)
     {
-        //
-    }
+        $specialization->delete();
 
-    public function destroy(Specialization $degree)
-    {
-        //
+        return back();
     }
 }

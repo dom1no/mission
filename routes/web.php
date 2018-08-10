@@ -19,4 +19,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::get('paid/{application}', 'ApplicationController@paid')->name('paid');
     });
 
+    Route::resource('specialization', 'SpecializationController')->except('show');
+    Route::resource('degree', 'DegreeController')->except('show');
 });

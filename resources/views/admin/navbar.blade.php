@@ -12,16 +12,16 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.application.index') }}">{{ __('Applications') }}</a>
+                    <a class="nav-link" href="{{ route('admin.application.index') }}">Заявки</a>
                 </li>
 
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="{{ route('admin.application.index') }}">{{ __('Applications') }}</a>--}}
-                {{--</li>--}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.specialization.index') }}">Специализации</a>
+                </li>
 
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="{{ route('admin.application.index') }}">{{ __('Applications') }}</a>--}}
-                {{--</li>--}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.degree.index') }}">Ученые степени</a>
+                </li>
             </ul>
         </div>
     </div>

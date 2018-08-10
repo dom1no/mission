@@ -31,8 +31,8 @@ class CreateApplicationsTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('specialization_id')->references('id')->on('specializations');
-            $table->foreign('degree_id')->references('id')->on('degrees');
+            $table->foreign('specialization_id')->references('id')->on('specializations')->onDelete('SET NULL');
+            $table->foreign('degree_id')->references('id')->on('degrees')->onDelete('SET NULL');
         });
     }
 

@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('specializations', 'CatalogController@specializations')->name('specializations');
-Route::get('degree', 'CatalogController@degree')->name('degree');
+Route::get('degrees', 'CatalogController@degrees')->name('degrees');
 
 Route::prefix('application')->name('application.')->group(function () {
     Route::get('/', 'ApplicationController@index')->name('index');
